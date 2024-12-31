@@ -7,6 +7,9 @@ The purpose of this project is to forecast the next day’s open price for the S
   + **data_collection.py:** File for collecting original SP500 ticker data. I also attempted to collect VIX data, but that ended up showing up as NaN.
   + **model_training.py:** File that establishes the functions for the actual training of the model.
   + **main.py:** File that executes the training and plots comparisons.
++ **README.md:** Goes over what this project covers, how it differs from version 1, and how to run it.
++ **project_explanation.md:** The current document.
++ **requirements.txt:** List of dependencies needed to run this model.
  
 ## Key Functions
 
