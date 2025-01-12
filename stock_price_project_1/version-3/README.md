@@ -13,6 +13,7 @@ In this **Version 3** of the stock price project, we switch from **multi-feature
 - **Result:** Observed that the model often “defaults” to predicting 1 (i.e., “up”) for many rows, yielding around 50% accuracy.
 
 ## Directory Structure
+```bash
 version_3/ 
 ├── src/ 
 │ ├── __init__.py 
@@ -21,6 +22,7 @@ version_3/
 │ └── main.py # Ties everything together, trains model, checks predictions 
 ├── README.md # You're reading it now 
 └── requirements.txt # Dependencies (numpy, pandas, matplotlib, yfinance, etc.)
+```
 
 **data_collection.py**
 Fetches historical S&P 500 daily data from Yahoo Finance (and optionally VIX).
