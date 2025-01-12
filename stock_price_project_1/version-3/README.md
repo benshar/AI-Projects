@@ -51,44 +51,48 @@ numpy, pandas, matplotlib, yfinance, etc.
 pip install -r requirements.txt
 ```
 
-Run
-python src/main.py
+**Run**
+```python
+src/main.py
+```
 
-The script will:
+**The script will:**
 
-Pull data (S&P 500 and possibly VIX) from Yahoo Finance.
-Compute rolling averages, RSI, and other features.
-Merge, scale, and split the dataset into training (e.g., 90%) and testing.
-Train a multi-feature logistic regression with gradient descent.
-Plot the training cost (and possibly a predicted vs. actual scatter plot).
-Why This Model Defaults to 1s
-Slight Bullish Bias in the Data
+1. Pull data (S&P 500 and possibly VIX) from Yahoo Finance.
+2. Compute rolling averages, RSI, and other features.
+3. Merge, scale, and split the dataset into training (e.g., 90%) and testing.
+4. Train a **multi-feature** logistic regression with gradient descent.
+5. Plot the training cost (and possibly a predicted vs. actual scatter plot).
 
-The S&P 500 historically goes “up” a bit more than “down,” so around 55–60% of days are up.
-The logistic regression may converge to a near-constant “predict up” solution if the features provide weak day-to-day signals.
-Limited Features
+## Why This Model Defaults to 1s
+1. **Slight Bullish Bias in the Data**
+- The S&P 500 historically goes “up” a bit more than “down,” so around 55–60% of days are up.
+- The logistic regression may converge to a near-constant “predict up” solution if the features provide weak day-to-day signals.
 
-Indicators like RSI, moving averages, or day-of-week might not strongly differentiate daily direction.
-As a result, the model finds minimal advantage in deviating from a near-constant guess of “1.”
-Model & Data Realities
+2. **Limited Features**
+- Indicators like RSI, moving averages, or day-of-week might not strongly differentiate daily direction.
+- As a result, the model finds minimal advantage in deviating from a near-constant guess of “1.”
 
-Intraday or day-to-day moves can be noisy and somewhat random, especially in a broad index like the S&P 500.
-If you want a stronger edge, advanced features (fundamentals, macro, order book data) or different models might be necessary.
-Suggestions for Improvement
-Double-Check Label Alignment
-Ensure row i’s features correspond to the day you compare for up/down.
-Add More or Different Features
-Lagged prices (Close[t-1], Volume[t-1])
-Macroeconomic or fundamental data
-Alternative advanced indicators
-Tune Learning Rate / Iterations
-If gradient descent doesn’t converge well, consider lowering alpha or raising iteration count.
-Or try a different solver (like scikit-learn’s LogisticRegression).
-Consider a Different Approach
-Random forests, gradient-boosted trees, or neural networks might learn more complex patterns.
-Or incorporate more domain-specific signals (sector correlation, sentiment, etc.).
-Conclusion
-This Version 3 highlights logistic regression for daily up/down classification. The code runs correctly, but the 50% accuracy and near-constant “1” predictions suggest day-to-day S&P 500 direction is not easily captured by these simple features in a linear logistic model. This is not necessarily a bug—it’s a normal outcome for short-term index direction prediction using standard indicators.
+3. **Model & Data Realities**
+- Intraday or day-to-day moves can be noisy and somewhat random, especially in a broad index like the S&P 500.
+- If you want a stronger edge, advanced features (fundamentals, macro, order book data) or different models might be necessary.
+
+## Suggestions for Improvement
+1. **Double-Check Label Alignment**
+- Ensure row i’s features correspond to the day you compare for up/down.
+2. **Add More or Different Features**
+- Lagged prices (Close[t-1], Volume[t-1])
+- Macroeconomic or fundamental data
+- Alternative advanced indicators
+3. **Tune Learning Rate / Iterations**
+- If gradient descent doesn’t converge well, consider lowering alpha or raising iteration count.
+- Or try a different solver (like scikit-learn’s LogisticRegression).
+4. **Consider a Different Approach**
+- Random forests, gradient-boosted trees, or neural networks might learn more complex patterns.
+- Or incorporate more domain-specific signals (sector correlation, sentiment, etc.).
+
+## Conclusion
+This **Version 3** highlights **logistic regression** for daily up/down classification. The code runs correctly, but the **50% accuracy** and near-constant “1” predictions suggest day-to-day S&P 500 direction is not easily captured by these simple features in a linear logistic model. This is **not necessarily a bug—**it’s a normal outcome for short-term index direction prediction using standard indicators.
 
 
 
