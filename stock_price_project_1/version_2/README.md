@@ -56,16 +56,3 @@ python src/main.py
 3. Merge, scale, and split the dataset into training (e.g., 90%) and testing.
 4. Train a multi-feature linear regression with gradient descent.
 5. Plot the training cost (and possibly a predicted vs. actual scatter plot).
-
-# Why This Model is Better Than Version 1
-
-**Multiple Features:**
-Moving averages (e.g., 5-day, 20-day), RSI, volatility, day-of-week, and optional VIX data each provide signals far more relevant than mere time elapsed.
-
-**Captures Some Market Complexity:**
-Though still a linear approach, additional features let the model track short-term trends, momentum, and volatility more closely than a single “days since 2004” metric.
-
-**Greater Realism:**
-Compared to Version 1, you’ll see forecasts that align more closely with actual price movements—though there’s still room for advanced models (ARIMA, LSTM, Transformers) or more fundamental/macro data.
-
-In short, **Version 2** is a substantial improvement over Version 1’s one-dimensional view, offering a practical next step toward a more robust stock forecasting model.
