@@ -8,8 +8,8 @@ pd.set_option('display.max_columns', None)
 sp500_ticker = yf.Ticker("^GSPC")
 vix_ticker = yf.Ticker("^VIX")
 
-sp500_data = sp500_ticker.history(interval='1d', start='2004-01-01', end='2024-01-01')
-vix_data = vix_ticker.history(interval='1d', start='2004-01-01', end='2024-01-01')
+sp500_data = sp500_ticker.history(interval='1d', start='2004-01-01', end='2024-12-09')
+vix_data = vix_ticker.history(interval='1d', start='2004-01-01', end='2024-12-09')
 
 sp500_data['days_since_2004'] = (sp500_data.index - pd.to_datetime("2004-01-01", utc=True)).days  # B/c I'm using a regression model, I have to convert the date into numerical days since 2004, while accounting for holidays/weekends.
 sp500_data.reset_index(inplace=True)
